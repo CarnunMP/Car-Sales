@@ -8,13 +8,13 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const App = () => {
-  const monsterReducer = combineReducers({
-    additionalPrice: reducers.priceReducer,
-    car: reducers.carReducer,
-    store: reducers.storeReducer,
-  })
+const monsterReducer = combineReducers({
+  additionalPrice: reducers.priceReducer,
+  car: reducers.carReducer,
+  store: reducers.storeReducer,
+});
 
+const App = () => {
   const removeFeature = item => {
     // dispatch an action here to remove an item
   };
