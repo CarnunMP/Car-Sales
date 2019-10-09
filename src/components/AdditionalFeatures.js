@@ -1,4 +1,5 @@
 import React from 'react';
+import AdditionalFeature from "./AdditionalFeature";
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
 

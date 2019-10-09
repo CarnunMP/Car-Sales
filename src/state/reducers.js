@@ -1,10 +1,10 @@
 import * as types from "./actionTypes";
 
 const additionalPrice = 0;
-export function priceReducer(additionalPrice = additionalPrice, action) {
+export function priceReducer(additionalPriceState = additionalPrice, action) {
     switch (action.type) {
         default:
-            return additionalPrice;
+            return additionalPriceState;
     }
 }
 
@@ -15,10 +15,10 @@ const car = {
       'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
     features: []
 };
-export function carReducer(car, action) {
+export function carReducer(carState = car, action) {
     switch (action.type) {
         default:
-            return car;
+            return carState;
     }
 }
 
@@ -28,9 +28,9 @@ const store = [
     { id: 3, name: 'Premium sound system', price: 500 },
     { id: 4, name: 'Rear spoiler', price: 250 }
 ];
-export function storeReducer(store, action) {
+export function storeReducer(storeState = store, action) {
     switch (action.type) {
         default:
-            return store;
+            return storeState;
     }
 }
