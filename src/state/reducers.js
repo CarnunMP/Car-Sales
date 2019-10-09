@@ -8,6 +8,8 @@ export function priceReducer(additionalPriceState = additionalPrice, action) {
             return !features.includes(feature) ?
                 additionalPriceState += feature.price :
                 additionalPriceState;
+        case types.REMOVE_FEATURE:
+            return additionalPriceState -= feature.price;
         default:
             return additionalPriceState;
     }
@@ -34,7 +36,7 @@ export function carReducer(carState = car, action) {
         case types.REMOVE_FEATURE:
             return {
             ...carState,
-            features: carState.features.filter(feature => feature !== action.payload),
+            features: carState.features.filter(item => item !== feature),
         }
         default:
             return carState;
