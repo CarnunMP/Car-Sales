@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+import * as actionCreators from "../state/actionCreators";
 
 const Total = props => {
   return (
@@ -8,4 +10,7 @@ const Total = props => {
   );
 };
 
-export default Total;
+export default connect(
+  state => state,
+  actionCreators,
+)(Total);
