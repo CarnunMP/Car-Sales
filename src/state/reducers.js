@@ -1,4 +1,12 @@
+import * as types from "./actionTypes";
+
 const additionalPrice = 0;
+export function priceReducer(additionalPrice = additionalPrice, action) {
+    switch (action.type) {
+        default:
+            return additionalPrice;
+    }
+}
 
 const car = {
     price: 26395,
@@ -6,6 +14,12 @@ const car = {
     image:
       'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
     features: []
+};
+export function carReducer(car, action) {
+    switch (action.type) {
+        default:
+            return car;
+    }
 }
 
 const store = [
@@ -13,4 +27,10 @@ const store = [
     { id: 2, name: 'Racing detail package', price: 1500 },
     { id: 3, name: 'Premium sound system', price: 500 },
     { id: 4, name: 'Rear spoiler', price: 250 }
-]
+];
+export function storeReducer(store, action) {
+    switch (action.type) {
+        default:
+            return store;
+    }
+}
