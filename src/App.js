@@ -14,6 +14,11 @@ const monsterReducer = combineReducers({
   store: reducers.storeReducer,
 });
 
+const reduxStore = createStore(
+  monsterReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+)
+
 const App = () => {
   const removeFeature = item => {
     // dispatch an action here to remove an item
