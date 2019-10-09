@@ -17,6 +17,11 @@ const car = {
 };
 export function carReducer(carState = car, action) {
     switch (action.type) {
+        case types.ADD_FEATURE:
+            return {
+                ...carState,
+                features: [...carState.features, action.payload],
+            }
         default:
             return carState;
     }

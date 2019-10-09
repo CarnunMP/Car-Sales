@@ -5,6 +5,7 @@ import * as actionCreators from "../state/actionCreators";
 import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
+  debugger
   return (
     <div className="content">
       <h6>Added features:</h6>
