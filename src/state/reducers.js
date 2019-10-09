@@ -20,10 +20,13 @@ const car = {
 export function carReducer(carState = car, action) {
     switch (action.type) {
         case types.ADD_FEATURE:
-            return {
-                ...carState,
-                features: [...carState.features, action.payload],
-            }
+            return carState.features.includes(action.payload) ?
+                {carState} :
+                {
+                    ...carState,
+                    "features": [...carState.features, action.payload],
+                    // Hmm... why does this need to be a string to work?
+                };
         case types.REMOVE_FEATURE:
             return {
             ...carState,
