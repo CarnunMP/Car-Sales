@@ -2,9 +2,12 @@ import * as types from "./actionTypes";
 
 const additionalPrice = 0;
 export function priceReducer(additionalPriceState = additionalPrice, action) {
+    const { features, feature } = action.payload || {};
     switch (action.type) {
         case types.ADD_FEATURE:
-            return additionalPriceState += action.payload.price;
+            return !features.includes(feature) ?
+                additionalPriceState += feature.price :
+                additionalPriceState;
         default:
             return additionalPriceState;
     }
@@ -18,13 +21,14 @@ const car = {
     features: []
 };
 export function carReducer(carState = car, action) {
+    const { feature } = action.payload || {};
     switch (action.type) {
         case types.ADD_FEATURE:
-            return carState.features.includes(action.payload) ?
-                {carState} :
+            return carState.features.includes(feature) ?
+                carState :
                 {
                     ...carState,
-                    "features": [...carState.features, action.payload],
+                    "features": [...carState.features, feature],
                     // Hmm... why does this need to be a string to work?
                 };
         case types.REMOVE_FEATURE:

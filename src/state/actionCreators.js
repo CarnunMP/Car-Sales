@@ -1,9 +1,10 @@
 import * as types from "./actionTypes";
+import { arch } from "os";
 
-export function addFeature(feature) {
+export function addFeature(feature, car) {
     return {
         type: types.ADD_FEATURE,
-        payload: feature,
+        payload: {feature: feature, features: car.features},
     };
 }
 
