@@ -3,6 +3,8 @@ import * as types from "./actionTypes";
 const additionalPrice = 0;
 export function priceReducer(additionalPriceState = additionalPrice, action) {
     switch (action.type) {
+        case types.ADD_FEATURE:
+            return additionalPriceState += action.payload.price;
         default:
             return additionalPriceState;
     }
@@ -22,6 +24,11 @@ export function carReducer(carState = car, action) {
                 ...carState,
                 features: [...carState.features, action.payload],
             }
+        case types.REMOVE_FEATURE:
+            return {
+            ...carState,
+            features: carState.features.filter(feature => feature !== action.payload),
+        }
         default:
             return carState;
     }
